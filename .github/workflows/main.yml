@@ -1,0 +1,29 @@
+name: CI Pipeline
+on: [push]  # Triggers on every push
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest  # GitHub-hosted runner
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Install dependencies (if any)
+      - name: Install Dependencies
+        run: npm install
+
+      # 4. Run tests (simulated)
+      - name: Run Tests
+        run: npm test
+
+      # 5. Deploy (simulated—replace with real steps)
+      - name: Log Deployment
+        run: echo "App would deploy here! 🚀"
